@@ -8,4 +8,8 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :edit, :update, :show ]
     resources :tags, only: [:new, :create]
   end
+
+  get '/login', to: "sessions#new"
+  post '/login', to: "sessions#create"
+
 end
