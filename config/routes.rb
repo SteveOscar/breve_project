@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:new, :create, :show, :delete] do
-    resources :posts, only: [:index, :edit, :update, :show ]
+    resources :posts
     resources :tags, only: [:new, :create]
   end
 
