@@ -1,1 +1,6 @@
 <h3>Posts for <%= current_user.username %> </h3>
+
+<% current_user.posts.each do |post| %>
+  <%= link_to post.title, user_post_path(current_user.id, post.id) %>
+<br>
+<% end %>
