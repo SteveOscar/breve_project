@@ -6,31 +6,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <nav>
     <div class="nav-wrapper">
-      <div class="container">
-        <a href="#" class="brand-logo left">Breve</a3>
-        <% if session[:user_id] %>
-          <%= link_to "Log Out", logout_path, method: :delete %>
-        <% else %>
-          <a href="<%= login_path %>" class="waves-effect waves-light btn right">Log In</a>
-        <% end %>
-      </div>
+      <h3 class="center teal-text">Breve</h3>
+      <% if session[:user_id] %>
+        <a href="<%= logout_path %>" class="waves-effect waves-light btn right">Log Out</a>
+      <% end %>
     </div>
   </nav>
-  <% flash.each do |type, msg| %>
-    <%= content_tag :div, msg, class: "flash-#{type}" %>
-  <% end %>
-  <% if current_user %>
-    <p>Welcome <%= current_user.username %> </p>
-    <!-- <%= link_to "Log Out", logout_path, method: :delete %> -->
-  <% end %>
 
 <%= yield %>
     <!--Import jQuery before materialize.js-->

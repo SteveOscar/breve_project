@@ -12,6 +12,7 @@ class UserCanWriteAPostWithAttachmentTest < ActionDispatch::IntegrationTest
     fill_in "Body", with: "This is a picture of something"
     click_on "Submit"
 
-    assert_equal 
+    assert_equal user_posts_path(user), current_path
+    assert page.has_content?("Posts for #{user.username}")
   end
 end

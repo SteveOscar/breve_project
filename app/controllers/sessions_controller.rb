@@ -1,4 +1,5 @@
 class SessionsController < ActionController::Base
+  layout "sessions_layout"
   def new
   end
 
