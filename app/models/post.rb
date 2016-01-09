@@ -1,8 +1,11 @@
 class Post < ActiveRecord::Base
   belongs_to :user
   has_many :posts_tags
-  has_many :attachments
+  # has_many :attachments
   has_many :tags, through: :posts_tags
+  has_attached_file :image, styles: { large: "500x500", medium: "300x300>", thumb: "100x100>" }
+  validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+
 
 
   def tag_list=(tags_string)

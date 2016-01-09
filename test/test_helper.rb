@@ -4,6 +4,7 @@ require 'rails/test_help'
 require 'capybara/rails'
 require 'mocha/mini_test'
 require 'database_cleaner'
+include ActionDispatch::TestProcess
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -24,6 +25,7 @@ class Minitest::Test
 end
 
 class ActionDispatch::IntegrationTest
+
   include Capybara::DSL
   def delete_users
     User.all.each do |user|
