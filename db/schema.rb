@@ -11,17 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160107213519) do
+ActiveRecord::Schema.define(version: 20160109223932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "attachments", force: :cascade do |t|
+    t.string  "image_file_name"
+    t.string  "image_content_type"
+    t.integer "image_file_size"
+    t.integer "post_id"
+  end
+
+  add_index "attachments", ["post_id"], name: "index_attachments_on_post_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
@@ -45,5 +58,6 @@ ActiveRecord::Schema.define(version: 20160107213519) do
     t.integer  "role",            default: 0
   end
 
+  add_foreign_key "attachments", "posts"
   add_foreign_key "posts", "users"
 end

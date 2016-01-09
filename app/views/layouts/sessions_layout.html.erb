@@ -16,7 +16,8 @@
     <div class="nav-wrapper">
       <h3 class="center teal-text">Breve</h3>
       <% if session[:user_id] %>
-        <a href="<%= logout_path %>" class="waves-effect waves-light btn right">Log Out</a>
+        <%= link_to("Log Out", logout_path, method: :delete, class: "waves-effect waves-light btn right") %>
+        <!-- <a href="<%= logout_path %>" class="waves-effect waves-light btn right" method: :delete>Log Out</a> -->
       <% end %>
     </div>
   </nav>
