@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160109223932) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.integer  "user_id"
+    t.string   "slug"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160109223932) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "role",            default: 0
+    t.string   "slug"
   end
 
   add_foreign_key "attachments", "posts"

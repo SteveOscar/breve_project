@@ -3,3 +3,6 @@
   <%= Post.find(params[:id]).body %>
 </p>
 <%= image_tag (Post.find(params[:id])).image.url %>
+
+<%= link_to "Edit", edit_user_post_path(current_user, Post.find(params[:id])) %>
+<%= link_to "Delete", user_post_path(current_user, Post.find(params[:id])), method: :delete %>
