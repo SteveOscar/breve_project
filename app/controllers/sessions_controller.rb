@@ -9,7 +9,7 @@ class SessionsController < ActionController::Base
       session[:user_id] = user.id
       redirect_to user
     else
-      flash.now[:error] = @user.errors.full_messages.join(", ")
+      flash[:error] = "Invalid username or password"
       redirect_to login_path
     end
   end
