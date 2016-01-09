@@ -1,6 +1,5 @@
 <h3>All Posts</h3>
 <% @posts.each do |post| %>
-<% byebug %>
   <%= link_to post.title, user_post_path(post.user, post) %>
  <p>By: <%= post.user.username %> </p>
  <% end %>

@@ -1,10 +1,10 @@
 require 'test_helper'
 
 class AdminCanSeeAllPostsTest < ActionDispatch::IntegrationTest
-  
+
   test "logged in admin sees all posts" do
     admin = User.create(username: "Admin", password: "password", role: 1)
-    user1 = User.create(username: "Jenney", password: "password")
+    user1 = User.create(username: "Jenny", password: "password")
     user2 = User.create(username: "Katy", password: "password")
     post1 = user1.posts.create(title: "User Post", body: "ADMIN POST VIEWING")
     post2 = user2.posts.create(title: "Coffee Thing", body: "MORE ADMIN POST VIEWING")
@@ -17,4 +17,6 @@ class AdminCanSeeAllPostsTest < ActionDispatch::IntegrationTest
     assert page.has_content?("Jenny")
     assert page.has_content?("Katy")
   end
+
+  
 end

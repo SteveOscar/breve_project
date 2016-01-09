@@ -3,6 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 require 'capybara/rails'
 require 'mocha/mini_test'
+require 'database_cleaner'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
@@ -24,8 +25,20 @@ end
 
 class ActionDispatch::IntegrationTest
   include Capybara::DSL
+  def delete_users
+    User.all.each do |user|
+      user.delete
+    end
+  end
+  def delete_posts
+    Post.all.each do |post|
+      post.delete
+    end
+  end
+
   def setup
-    DatabaseCleaner.start
+    delete_users
+    delete_posts
   end
   def teardown
     reset_session!
