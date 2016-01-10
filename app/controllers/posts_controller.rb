@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
 
     def show
       @post = Post.find(params[:id])
@@ -36,7 +37,6 @@ class PostsController < ApplicationController
       redirect_to user_posts_path(current_user)
     end
 
-  end
 
   private
 
