@@ -1,6 +1,7 @@
 <h1> <%= Post.find(params[:id]).title %> </h1>
 <p>
-  <%= Post.find(params[:id]).body %>
+  <%= Post.find(params[:id]).body %><br>
+  Category: <%= post_tags %>
 </p>
 <%= image_tag (Post.find(params[:id])).image.url %>
 
