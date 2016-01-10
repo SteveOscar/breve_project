@@ -1,9 +1,13 @@
-<h1> <%= Post.find(params[:id]).title %> </h1>
-<p>
-  <%= Post.find(params[:id]).body %><br>
-  Category: <%= post_tags %>
-</p>
-<%= image_tag (Post.find(params[:id])).image.url %>
-
-<%= link_to "Edit", edit_user_post_path(current_user, Post.find(params[:id])) %>
-<%= link_to "Delete", user_post_path(current_user, Post.find(params[:id])), method: :delete %>
+<div class="container">
+  <h1> <%= @post.title %> </h1><br>
+  Category: <%= post_tags %><br>
+  <div class="photo">
+    <%= image_tag (@post).image.url(:large) %><br>
+  </div>
+  <p>
+    <%= @post.body %><br>
+  </p>
+  <%= link_to "Edit", edit_user_post_path(current_user, @post), class: "waves-effect waves-light btn center" %>
+  <%= link_to "Delete", user_post_path(current_user, @post), method: :delete, class: "waves-effect waves-light btn center" %>
+  <%= link_to "Index", user_posts_path(current_user), class: "waves-effect waves-light btn right red" %>
+</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>ToolChest</title>
+  <title>Breve</title>
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
   <!-- Compiled and minified JavaScript -->
@@ -28,7 +28,7 @@
     <%= content_tag :div, msg, class: "flash-#{type}" %>
   <% end %>
   <% if current_user %>
-    <p>Welcome <%= current_user.username %> </p>
+    <p class="right">Logged In As: <%= current_user.username %> </p>
     <!-- <%= link_to "Log Out", logout_path, method: :delete %> -->
   <% end %>
 
