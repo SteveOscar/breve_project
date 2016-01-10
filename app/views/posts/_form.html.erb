@@ -9,7 +9,7 @@
     <% Tag.all.each do |tag| %>
       <p>
         <%= f.radio_button("tag_list", tag.id ) %>
-        <%= f.label("tag_list_#{tag.id}", tag.name) %>
+        <%= f.label("tag_list_#{tag.id}", tag.name.upcase) %>
       </p>
     <% end %>
 
