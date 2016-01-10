@@ -1,29 +1,38 @@
+<div class="container">
+  <%= form_for([current_user, @post], html: {multipart: true}) do |f| %>
+    <ul>
+    <% @post.errors.full_messages.each do |error| %>
+      <li> <%= error %> </li>
+    <% end %>
+    </ul>
 
-<%= form_for([current_user, @post], html: {multipart: true}) do |f| %>
-  <ul>
-  <% @post.errors.full_messages.each do |error| %>
-    <li> <%= error %> </li>
+    <% Tag.all.each do |tag| %>
+      <p>
+        <%= f.radio_button("tag_list", tag.id ) %>
+        <%= f.label("tag_list_#{tag.id}", tag.name) %>
+      </p>
+    <% end %>
+
+    <p>
+
+      <%= f.label :title %><br />
+      <%= f.text_field :title %>
+
+      <%= f.label :body %><br />
+      <%= f.text_area :body %>
+    </p>
+
+
+    </p><br>
+
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <p>
+
+      <%= f.label :image, "Attach an image" %>
+      <%= f.file_field :image %>
+    </p>
+    <p>
+      <%= f.submit "Submit", class: "waves-effect waves-light btn" %>
+    </p>
   <% end %>
-  </ul>
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.label :tag_list %><br />
-    <%= f.text_field :tag_list %>
-  </p>
-
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <p>
-
-    <%= f.label :image, "Attach an image" %>
-    <%= f.file_field :image %>
-  </p>
-  <p>
-    <%= f.submit "Submit" %>
-  </p>
-<% end %>
+</div>

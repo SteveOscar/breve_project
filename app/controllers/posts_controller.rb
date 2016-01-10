@@ -2,11 +2,13 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @tags = Tag.all.map { |tag| tag.name }
   end
 
   def create
     user = User.find(params[:post][:user_id])
     @post = user.posts.new(post_params)
+
     if @post.save
       redirect_to user_posts_path(user)
     else
@@ -39,7 +41,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image)
+    params.require(:post).permit(:title, :body, :image, :tag_list)
   end
 
 end
