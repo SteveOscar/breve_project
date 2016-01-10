@@ -1,6 +1,7 @@
-<div class="container">
-  <h1> <%= @post.title %> </h1><br>
+<div class="container form">
+  <h1> <%= @post.title %> </h1>
   Category: <%= post_tags %><br>
+  <br>
   <div class="photo">
     <%= image_tag (@post).image.url(:large) %><br>
   </div>

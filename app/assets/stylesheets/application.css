@@ -1,7 +1,28 @@
 body {
-  background-color: teal;
-  color: white;
+  background-color: lightgray;
+  color: teal;
 }
-h3 {
-  display: inline-block;
+#credentials {
+  padding-right: 20px;
+}
+nav {
+  background-color: firebrick;
+}
+nav .brand-logo {
+    color: cornsilk;
+    font-size: 3.1rem;
+}
+.welcome {
+  margin: auto;
+  display: block;
+  width: 300px;
+}
+.new_post_btn {
+  float: right;
+}
+.btn {
+  margin: 10px;
+}
+.form {
+  background-color: whitesmoke;
 }

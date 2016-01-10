@@ -15,21 +15,23 @@
   <nav>
     <div class="nav-wrapper">
       <div class="container">
-        <a href="#" class="brand-logo left">Breve</a3>
+        <a href="/" class="brand-logo left">Breve</a3>
+          
         <% if session[:user_id] %>
           <%= link_to("Log Out", logout_path, method: :delete, class: "waves-effect waves-light btn right") %>
         <% else %>
           <%= link_to "Log In", login_path, class: "waves-effect waves-light btn right"%>
         <% end %>
+
+        <% if current_user %>
+          <p id="credentials" class="right">Logged In As: <%= current_user.username %> </p>
+        <% end %>
+
       </div>
     </div>
   </nav>
   <% flash.each do |type, msg| %>
     <%= content_tag :div, msg, class: "flash-#{type}" %>
-  <% end %>
-  <% if current_user %>
-    <p class="right">Logged In As: <%= current_user.username %> </p>
-    <!-- <%= link_to "Log Out", logout_path, method: :delete %> -->
   <% end %>
 
 <%= yield %>
