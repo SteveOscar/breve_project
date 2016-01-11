@@ -105,3 +105,14 @@ form {
     margin-top: 25px;
     box-shadow: 1px 1px 30px #A0A0A0;
 }
+
+.category_tags {
+    font-size: 1rem;
+    font-weight: 100;
+    line-height: 110%;
+    margin: 5px 20px;
+}
+
+.category_tags span{
+  font-weight:300;
+}
