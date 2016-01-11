@@ -15,32 +15,30 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+    def show
+      @post = Post.find_by_slug(params[:slug])
+    end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
+    def edit
+      @post = Post.find_by_slug(params[:slug])
+    end
 
-  def update
-    @post = Post.find(params[:id])
-    @post.update_attributes(post_params)
-
+    def update
+      @post = Post.find_by_slug(params[:slug])
+      @post.update_attributes(post_params)
     redirect_to user_post_path(@post.user, @post)
   end
 
-  def destroy
-    post = Post.find(params[:id])
-    post.delete
-    redirect_to user_posts_path(current_user)
-  end
-
+    def destroy
+      post = Post.find_by_slug(params[:slug])
+      post.delete
+      redirect_to user_posts_path(current_user)
+    end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :tag_list)
+    params.require(:post).permit(:title, :body, :image, :tag_list, :slug)
   end
 
 end

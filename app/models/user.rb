@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  before_create :generate_slug
   validates_presence_of :username
   has_many :posts
   has_secure_password
@@ -6,11 +7,11 @@ class User < ActiveRecord::Base
   enum role: %w(default admin)
 
   def generate_slug
-    self.username
+    self.slug = username.parameterize
   end
 
-  def to_params
-    generate_slug.parameterize
+  def to_param
+    slug
   end
 
 end
