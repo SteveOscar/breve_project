@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     end
 
     def destroy
-      post = Post.find(params[:id])
+      post = Post.find_by_slug(params[:slug])
       post.delete
       redirect_to user_posts_path(current_user)
     end
