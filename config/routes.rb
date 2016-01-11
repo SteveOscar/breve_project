@@ -4,8 +4,8 @@ Rails.application.routes.draw do
     resources :tags
   end
 
-  resources :users, only: [:new, :create, :show, :delete] do
-    resources :posts
+  resources :users, only: [:new, :create, :show, :delete], param: :slug do
+    resources :posts, param: :slug
     resources :tags, only: [:new, :create]
   end
 

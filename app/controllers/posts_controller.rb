@@ -17,15 +17,15 @@ class PostsController < ApplicationController
   end
 
     def show
-      @post = Post.find(params[:id])
+      @post = Post.find_by_slug(params[:slug])
     end
 
     def edit
-      @post = Post.find(params[:id])
+      @post = Post.find_by_slug(params[:slug])
     end
 
     def update
-      @post = Post.find(params[:id])
+      @post = Post.find_by_slug(params[:slug])
       @post.update_attributes(post_params)
 
       redirect_to user_post_path(@post.user, @post)
@@ -41,7 +41,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :tag_list)
+    params.require(:post).permit(:title, :body, :image, :tag_list, :slug)
   end
 
 end

@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def post_tags
-    tag = Post.find(params[:id]).tags
+    tag = Post.find_by_slug(params[:slug]).tags
     tag.empty? ? (tag = "None") : (tag = tag.first[:name].upcase)
     tag
   end
