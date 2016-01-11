@@ -7,6 +7,8 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <!-- The line above got removed, but it's necessary for changing request methods to delete or post -->
   <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
 </head>
@@ -21,6 +23,10 @@
           <%= link_to("Log Out", logout_path, method: :delete, class: "waves-effect waves-light btn right") %>
         <% else %>
           <%= link_to "Log In", login_path, class: "waves-effect waves-light btn right"%>
+        <% end %>
+
+        <% if current_user && current_user.admin? %>
+          <%= link_to "Edit Tags", admin_tags_path, class: "waves-effect waves-light btn right"%>
         <% end %>
 
         <% if current_user %>

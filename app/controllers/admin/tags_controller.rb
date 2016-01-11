@@ -16,6 +16,12 @@ class Admin::TagsController < Admin::BaseController
     render :index
   end
 
+  def destroy
+    tag = Tag.find(params[:id])
+    tag.delete
+    redirect_to admin_tags_path
+  end
+
   private
 
   def tag_params

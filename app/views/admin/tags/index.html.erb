@@ -2,7 +2,7 @@
   <h3>All Tags</h3><br>
 
   <% Tag.all.each do |tag| %>
-    <%= tag.name.upcase %><span>    <%= link_to("delete", admin_tag_path(tag), method: :delete) %></span>
+    <%= tag.name.upcase %><span>(<%= link_to("delete", admin_tag_path(tag), method: :delete) %>)</span>
     <br />
   <% end %>
 
