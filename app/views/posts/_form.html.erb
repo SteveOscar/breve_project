@@ -5,34 +5,28 @@
       <li> <%= error %> </li>
     <% end %>
     </ul>
+    <div class="tag_section">
+      <% Tag.all.each do |tag| %>
+          <%= f.radio_button("tag_list", tag.id ) %>
+          <%= f.label("tag_list_#{tag.id}", tag.name.upcase) %>
+      <% end %>
+    </div>
 
-    <% Tag.all.each do |tag| %>
-      <p>
-        <%= f.radio_button("tag_list", tag.id ) %>
-        <%= f.label("tag_list_#{tag.id}", tag.name.upcase) %>
-      </p>
-    <% end %>
-
-    <p>
+    <br>
 
       <%= f.label :title %><br />
       <%= f.text_field :title %>
 
       <%= f.label :body %><br />
       <%= f.text_area :body, :cols => "10", :rows => "10", :style => "margin: 0px; width: 508px; height: 249px;" %>
-    </p>
-
-
-    </p><br>
+      <br>
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <p>
 
       <%= f.label :image, "Attach an image" %>
       <%= f.file_field :image %>
-    </p>
-    <p>
+
       <%= f.submit "Submit", class: "waves-effect waves-light btn" %>
-    </p>
+
   <% end %>
 </div>

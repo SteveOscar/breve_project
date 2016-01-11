@@ -6,11 +6,11 @@ class User < ActiveRecord::Base
   enum role: %w(default admin)
 
   def generate_slug
-    slug = current_user.name
+    self.username
   end
 
   def to_params
-    slug.parameterize
+    generate_slug.parameterize
   end
 
 end
