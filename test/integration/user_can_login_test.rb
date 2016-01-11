@@ -7,9 +7,12 @@ class UserCanLoginTest < ActionDispatch::IntegrationTest
 
     fill_in "Username", with: user.username
     fill_in "Password", with: "password"
-    click_on "Log In"
+
+    within('.main') do
+      click_on "Log In"
+    end
 
     assert_equal user_path(user), current_path
-    assert page.has_content?("Welcome Brenna")
+    assert page.has_content?("Welcome, Brenna!")
   end
 end

@@ -6,7 +6,9 @@ class UnregisteredUserCannotLogInTest < ActionDispatch::IntegrationTest
     fill_in "Username", with: "Brenna"
     fill_in "Password", with: "password"
 
-    click_on "Log In"
+    within('.main') do
+      click_on "Log In"
+    end
 
     assert page.has_content?("Invalid username or password")
   end
