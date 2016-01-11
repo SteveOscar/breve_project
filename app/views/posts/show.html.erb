@@ -1,6 +1,6 @@
 <div class="container form">
   <h1> <%= @post.title %> </h1>
-  Category: <%= post_tags %><br>
+  <h5 class= "category_tags"><span>Post Category:</span> <%= post_tags %><br></h5>
   <br>
   <div class="photo">
     <% if @post.image.url %>
