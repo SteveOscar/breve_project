@@ -27,6 +27,7 @@
 
         <% if current_user && current_user.admin? %>
           <%= link_to "Edit Tags", admin_tags_path, class: "waves-effect waves-light btn right"%>
+          <%= link_to "All Posts", admin_posts_path, class: "waves-effect waves-light btn right"%>
         <% end %>
 
         <% if current_user %>

@@ -1,5 +1,6 @@
-<h3>All Posts</h3>
-<% @posts.each do |post| %>
-  <%= link_to post.title, user_post_path(post.user, post) %>
- <p>By: <%= post.user.username %> </p>
- <% end %>
+<div class="container">
+  <h3>All Posts</h3>
+    <% @posts.each do |post| %>
+    <p> <%= post.title %> By: <%= post.user.username %> </p>
+   <% end %>
+</div>
