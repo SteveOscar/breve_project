@@ -1,12 +1,15 @@
 <div class="container">
   <div class="welcome">
-    <h4>Welcome <%= current_user.username %> </h4>
+    <h3>Welcome, <%= current_user.username %>! </h3>
+  </div>
+  <h3>Your Posts</h3>
+  <div class="posts_list">
+    <% current_user.posts.each do |post| %>
+      <%= link_to post.title, user_post_path(post.user, post) %>
+      <br>
+     <% end %>
   </div>
 
-  <h4>Your Posts</h4>
-  <% current_user.posts.each do |post| %>
-    <%= link_to post.title, user_post_path(post.user, post) %>
-   <% end %>
    <div class="new_post_btn">
      <%= link_to("Create New Post", new_user_post_path(current_user), class: "waves-effect waves-light btn right") %>
    </div>
