@@ -3,7 +3,10 @@
   Category: <%= post_tags %><br>
   <br>
   <div class="photo">
-    <%= image_tag (@post).image.url(:large) %><br>
+    <% if @post.image.url %>
+      <%= image_tag (@post).image.url(:large) %><br>
+    <% else %>
+    <% end %>
   </div>
   <p>
     <%= @post.body %><br>

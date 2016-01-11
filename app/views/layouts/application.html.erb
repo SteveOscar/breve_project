@@ -7,7 +7,7 @@
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
   <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= favicon_link_tag %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -16,7 +16,7 @@
     <div class="nav-wrapper">
       <div class="container">
         <a href="/" class="brand-logo left">Breve</a3>
-          
+
         <% if session[:user_id] %>
           <%= link_to("Log Out", logout_path, method: :delete, class: "waves-effect waves-light btn right") %>
         <% else %>

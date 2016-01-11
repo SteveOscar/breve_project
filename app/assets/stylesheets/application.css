@@ -2,6 +2,9 @@ body {
   background-color: lightgray;
   color: teal;
 }
+.container {
+  padding-bottom: 20px;
+}
 #credentials {
   padding-right: 20px;
 }
@@ -12,6 +15,43 @@ nav .brand-logo {
     color: cornsilk;
     font-size: 3.1rem;
 }
+
+h1 {
+    font-size: 4.2rem;
+    font-weight: 100;
+    line-height: 110%;
+    margin: 2.1rem 0 1.68rem 0;
+    text-align: center;
+    padding: 14px;
+    border-bottom: 12px double #D3D3D3;
+    text-shadow: 2px 2px 2px #868686;
+}
+
+
+a {
+    text-decoration: none;
+    color: #845656;
+    font-weight: 300;
+    font-size: 1.2em;
+  }
+
+a:hover {
+      outline: 0;
+      color: #CE2E2E;
+      border-bottom: 1px dotted;
+  }
+
+h3 {
+    font-size: 2.92rem;
+    padding: 10px;
+    text-align: center;
+    text-shadow: 2px 2px 2px #868686;
+    border-bottom: 10px double #BDBDBD;
+    font-weight: 100;
+    line-height: 110%;
+    margin: 1.46rem 0 1.168rem 0;
+}
+
 .welcome {
   margin: auto;
   display: block;
@@ -25,4 +65,36 @@ nav .brand-logo {
 }
 .form {
   background-color: whitesmoke;
+}
+
+.form p {
+    padding: 20px;
+    box-shadow: 1px 1px 9px #BFA9A9;
+    border-radius: 5px;
+    width: 70%;
+    margin: 0 auto;
+    margin: 20px auto;
+}
+
+.photo {
+    max-width: 80%;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 30px #8E7979;
+    text-align: center;
+    padding: 10px;
+}
+
+label {
+    font-size: 1.2rem;
+    color: #26A69A;
+    font-weight: 100;
+}
+
+form {
+    background-color: rgba(255,255,255,0.6);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 25px;
+    box-shadow: 1px 1px 30px #A0A0A0;
 }
