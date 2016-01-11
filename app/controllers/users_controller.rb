@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def new
+    session.clear
     @user = User.new
   end
 
