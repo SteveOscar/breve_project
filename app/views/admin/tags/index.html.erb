@@ -1,0 +1,20 @@
+<div class="container">
+  <h3>All Tags</h3><br>
+
+  <% Tag.all.each do |tag| %>
+    <%= tag.name.upcase %><span>    <%= link_to("delete", admin_tag_path(tag), method: :delete) %></span>
+    <br />
+  <% end %>
+
+  <br>
+  <!-- <%= link_to("Create New Tag", new_admin_tag_path, class: "waves-effect waves-light btn center") %> -->
+
+  <div class="container">
+    <%= form_for(@tag, url: admin_tags_path) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_area :name %>
+
+      <%= f.submit "New Tag", class: "waves-effect waves-light btn center" %>
+    <% end %>
+  </div>
+</div>
